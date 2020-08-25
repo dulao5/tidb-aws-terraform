@@ -2,7 +2,7 @@ resource "aws_security_group" "bastion-ssh" {
   name   = "pingcap-tidb-ssh-securitygroup"
   vpc_id = "${var.aws_vpc_id}"
 
-  tags {
+  tags = {
     Name = "pingcap-tidb-ssh-securitygroup"
   }
 }
@@ -20,7 +20,7 @@ resource "aws_security_group" "outbound" {
   name   = "pingcap-tidb-outbound-securitygroup"
   vpc_id = "${var.aws_vpc_id}"
 
-  tags {
+  tags = {
     Name = "pingcap-tidb-outbound-securitygroup"
   }
 }
@@ -38,7 +38,7 @@ resource "aws_security_group" "tidb" {
   name   = "pingcap-tidb-tidb-securitygroup"
   vpc_id = "${var.aws_vpc_id}"
 
-  tags {
+  tags = {
     Name = "pingcap-tidb-tidb-securitygroup"
   }
 }
@@ -65,7 +65,7 @@ resource "aws_security_group" "tikv" {
   name   = "pingcap-tidb-tikv-securitygroup"
   vpc_id = "${var.aws_vpc_id}"
 
-  tags {
+  tags = {
     Name = "pingcap-tidb-tikv-securitygroup"
   }
 }
@@ -83,7 +83,7 @@ resource "aws_security_group" "pd" {
   name   = "pingcap-tidb-pd-securitygroup"
   vpc_id = "${var.aws_vpc_id}"
 
-  tags {
+  tags = {
     Name = "pingcap-tidb-pd-securitygroup"
   }
 }
@@ -110,7 +110,7 @@ resource "aws_security_group" "monitor" {
   name   = "pingcap-tidb-monitor-securitygroup"
   vpc_id = "${var.aws_vpc_id}"
 
-  tags {
+  tags = {
     Name = "pingcap-tidb-monitor-securitygroup"
   }
 }
@@ -155,7 +155,7 @@ resource "aws_security_group" "intranet" {
   name   = "pingcap-tidb-intranet-securitygroup"
   vpc_id = "${var.aws_vpc_id}"
 
-  tags {
+  tags = {
     Name = "pingcap-tidb-intranet-securitygroup"
   }
 }
@@ -191,7 +191,7 @@ resource "aws_security_group" "aws-sql-elb" {
   name   = "pingcap-tidb-sql-securitygroup-elb"
   vpc_id = "${var.aws_vpc_id}"
 
-  tags {
+  tags = {
     Name = "pingcap-tidb-sql-securitygroup-elb"
   }
 }
@@ -218,7 +218,7 @@ resource "aws_security_group" "aws-monitor-elb" {
   name   = "pingcap-tidb-monitor-securitygroup-elb"
   vpc_id = "${var.aws_vpc_id}"
 
-  tags {
+  tags = {
     Name = "pingcap-tidb-monitor-securitygroup-elb"
   }
 }
@@ -246,7 +246,7 @@ resource "aws_security_group" "aws-rds-demo" {
   name   = "pingcap-rds-demo-securitygroup"
   vpc_id = "${var.aws_vpc_id}"
 
-  tags {
+  tags = {
     Name = "pingcap-rds-demo-securitygroup"
   }
 }

@@ -1,6 +1,6 @@
 resource "aws_elb" "aws-elb-sql" {
   name            = "pingcap-tidb-sql-elb"
-  subnets         = ["${var.subnet_public_ids}"]
+  subnets         = var.subnet_public_ids
   security_groups = ["${var.asg_elb_sql_id}"]
 
   listener {
@@ -18,20 +18,20 @@ resource "aws_elb" "aws-elb-sql" {
     interval            = 30
   }
 
-  instances                   = ["${var.tidb_instance_ids}"]
+  instances                   = var.tidb_instance_ids
   cross_zone_load_balancing   = true
   idle_timeout                = 400
   connection_draining         = true
   connection_draining_timeout = 400
 
-  tags {
+  tags = {
     Name = "pingcap-tidb-sql-elb"
   }
 }
 
 resource "aws_elb" "aws-elb-monitor" {
   name            = "pingcap-tidb-monitor-elb"
-  subnets         = ["${var.subnet_public_ids}"]
+  subnets         = var.subnet_public_ids
   security_groups = ["${var.asg_elb_monitor_id}"]
 
   listener {
@@ -49,13 +49,13 @@ resource "aws_elb" "aws-elb-monitor" {
     interval            = 30
   }
 
-  instances                   = ["${var.monitor_instance_ids}"]
+  instances                   = var.monitor_instance_ids
   cross_zone_load_balancing   = true
   idle_timeout                = 400
   connection_draining         = true
   connection_draining_timeout = 400
 
-  tags {
+  tags = {
     Name = "pingcap-tidb-monitor-elb"
   }
 }

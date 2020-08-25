@@ -3,7 +3,7 @@ resource "aws_vpc" "vpc_tidb_cluster" {
   # count      = "${var.external_vpc_id == "" ? 1 : 0}"
   cidr_block = "${var.vpc_cidr_block}"
 
-  tags {
+  tags = {
     Name = "VPC-tidb-cluster"
   }
 }
@@ -32,7 +32,7 @@ resource "aws_subnet" "public" {
   availability_zone = "${element(slice(var.azs,0,length(var.public_subnets)),count.index)}"
   cidr_block        = "${element(var.public_subnets,count.index)}"
 
-  tags {
+  tags = {
     Name = "Public-Subnet-TiDB"
     Tier = "Public"
   }
@@ -44,7 +44,7 @@ resource "aws_subnet" "private" {
   availability_zone = "${element(slice(var.azs,0,length(var.private_subnets)),count.index)}"
   cidr_block        = "${element(var.private_subnets,count.index)}"
 
-  tags {
+  tags = {
     Name = "Private-Subnet-TiDB"
     Tier = "Private"
   }
@@ -58,15 +58,15 @@ resource "aws_route_table" "public" {
 
 resource "aws_route" "public_internet" {
   count                  = "${length(var.public_subnets) > 0 ? 1 : 0}"
-  route_table_id         = "${aws_route_table.public.id}"
+  route_table_id         = "${aws_route_table.public[0].id}"
   destination_cidr_block = "0.0.0.0/0"
-  gateway_id             = "${aws_internet_gateway.vpc_tidb_igw.id}"
+  gateway_id             = "${aws_internet_gateway.vpc_tidb_igw[0].id}"
 }
 
 resource "aws_route_table_association" "public" {
   count          = "${length(var.public_subnets)}"
   subnet_id      = "${element(aws_subnet.public.*.id,count.index)}"
-  route_table_id = "${aws_route_table.public.id}"
+  route_table_id = "${aws_route_table.public[0].id}"
 }
 
 resource "aws_route_table" "private" {
@@ -86,5 +86,5 @@ resource "aws_route" "private_nat_gateway" {
 resource "aws_route_table_association" "private" {
   count          = "${length(var.private_subnets)}"
   subnet_id      = "${element(aws_subnet.private.*.id,count.index)}"
-  route_table_id = "${aws_route_table.private.id}"
+  route_table_id = "${aws_route_table.private[0].id}"
 }
