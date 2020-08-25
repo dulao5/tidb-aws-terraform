@@ -25,6 +25,17 @@ Handy terraform scripts for running TiDB on AWS
 	| pd      | i3.xlarge | 3 | private | 4 | 30.5 | 0.312 |
 	| monitor | t2.xlarge   | 1 | private | 4 | 16 | 0.1856 |
 
+for testing/development
+
+	| type  | instanceType  | counts | typeOfSubnet| CPU | Memory | Price/USD/時間 |
+	| :-: |:-:| :-:| :-: | :-: | :-: | :-: |
+	| bastion | t2.micro   | 1 | public  | 1 | 1 | 0.0116 |
+	| tidb    | c4.2xlarge | 3 | priveta | 8 | 15 | 0.398 |
+	| tikv    | i3.2xlarge   | 3 | private | 8 | 61 | 0.624 |
+	| pd      | m4.xlarge | 3 | private | 4 | 16 | 0.20 |
+	| monitor | t2.xlarge   | 1 | private | 4 | 16 | 0.1856 |
+
+
 3. Network resource
 
 	* 1 VPC
