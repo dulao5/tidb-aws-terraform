@@ -43,21 +43,25 @@ variable "single_nat_gateway" {
 variable "tidb_instance_type" {
  type    = "string"
  default = "c4.4xlarge"
+ /* c4.4xlarge	16cpu	30G */
 }
 
 variable "tikv_instance_type" {
   type    = "string"
   default = "i3.2xlarge"
+  /* i3.2xlarge	8cpu	61G */
 }
 
 variable "pd_instance_type" {
   type    = "string"
   default = "i3.xlarge"
+  /* i3.xlarge	4cpu	30.5G */
 }
 
 variable "monitor_instance_type" {
   type    = "string"
   default = "t2.xlarge"
+  /* t2.xlarge	4cpu	16G */
 }
 
 variable "bastion_instance_type" {

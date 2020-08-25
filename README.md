@@ -17,13 +17,13 @@ Handy terraform scripts for running TiDB on AWS
 
 2. Default EC2 instance type
 
-	| type  | instanceType  | counts | typeOfSubnet|
-	| :-: |:-:| :-:| :-: |
-	| bastion | t2.micro   | 1 | public  |
-	| tidb    | c4.4xlarge | 3 | priveta |
-	| tikv    | i3.2xlarge   | 3 | private |
-	| pd      | i3.xlarge | 3 | private |
-	| monitor | t2.xlarge   | 1 | private |
+	| type  | instanceType  | counts | typeOfSubnet| CPU | Memory | Price/USD/時間 |
+	| :-: |:-:| :-:| :-: | :-: | :-: | :-: |
+	| bastion | t2.micro   | 1 | public  | 1 | 1 | 0.0116 |
+	| tidb    | c4.4xlarge | 3 | priveta | 16 | 30G | 0.796 |
+	| tikv    | i3.2xlarge   | 3 | private | 8 | 61 | 0.624 |
+	| pd      | i3.xlarge | 3 | private | 4 | 30.5 | 0.312 |
+	| monitor | t2.xlarge   | 1 | private | 4 | 16 | 0.1856 |
 
 3. Network resource
 
