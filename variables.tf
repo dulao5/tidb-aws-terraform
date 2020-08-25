@@ -1,15 +1,15 @@
 variable "aws_access_key" {
-  type        = "string"
+  type        = string
   description = "Your AWS access key id"
 }
 
 variable "aws_secret_key" {
-  type        = "string"
+  type        = string
   description = "Your AWS secret key"
 }
 
 variable "aws_region" {
-  type        = "string"
+  type        = string
   description = "The AWS region you want to create resources"
   default     = "us-east-1"
 }
@@ -25,7 +25,7 @@ variable "private_subnets" {
 }
 
 variable "vpc_cidr_block" {
-  type        = "string"
+  type        = string
   description = "CIDR block for AWS VPC(TiDB Cluster)"
   default     = "10.0.0.0/16"
 }
@@ -41,44 +41,45 @@ variable "single_nat_gateway" {
 }
 
 variable "tidb_instance_type" {
- type    = "string"
- default = "c4.4xlarge"
+  type    = string
+  default = "c4.4xlarge"
 }
 
 variable "tikv_instance_type" {
-  type    = "string"
+  type    = string
   default = "i3.2xlarge"
 }
 
 variable "pd_instance_type" {
-  type    = "string"
+  type    = string
   default = "i3.xlarge"
 }
 
 variable "monitor_instance_type" {
-  type    = "string"
+  type    = string
   default = "t2.xlarge"
 }
 
 variable "bastion_instance_type" {
-  type    = "string"
+  type    = string
   default = "t2.micro"
 }
 
 variable "tidb_count" {
-	type = "string"
-	description = "The numble of the tidb instances to be deployed"
-	default = "3"
+  type        = string
+  description = "The numble of the tidb instances to be deployed"
+  default     = "3"
 }
 
 variable "tikv_count" {
-	type = "string"
-	description = "The numble of the tikv instances to be deployed"
-	default = "3"
+  type        = string
+  description = "The numble of the tikv instances to be deployed"
+  default     = "3"
 }
 
 variable "pd_count" {
-	type = "string"
-	description = "The numble of the pd instances to be deployed"
-	default = "3"
+  type        = string
+  description = "The numble of the pd instances to be deployed"
+  default     = "3"
 }
+
